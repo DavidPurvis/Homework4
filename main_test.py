@@ -25,3 +25,6 @@ def test_for_neg_sqrt():
 	
 def test_for_not_integer():
 	assert sq("abc") == None
+	
+def test_numbersstring():
+	assert numbers("hi", "one") == None
