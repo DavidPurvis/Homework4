@@ -23,6 +23,7 @@ def dist(x1, y1, x2, y2):
 ## takes in a string -- reverses it
 ## then compares the two
 def isPalindrome(temp):
+    temp = str(temp)
     test = temp[::-1]
 
     if(test == temp):
