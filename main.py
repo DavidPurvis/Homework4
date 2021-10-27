@@ -3,34 +3,54 @@ import math
 ## opens a file in read mode
 ## filename received as a parameter
 def openFile(filename):
-    infile = open(filename, "r")
+    try: 
+    	infile = open(filename, "r")
 
-    print("File opened.")
+    	print("File opened.")
+    except TypeError:
+    	print("Input must be a string.")
+    except IOError:
+    	print("File does not exist.")
 
 ## takes two numbers and returns
 ## the result of a division
 def numbers(num1, num2):
-    return num1 / num2
+    try:
+    	return num1 / num2
+    except ZeroDivisionError:
+    	print("Cannot divide by 0.")
+    except TypeError:
+    	print("Input must be integers.")
 
 ## takes in two points
 ## finds the distance between the points
 def dist(x1, y1, x2, y2):
-    dist = (x2 - x1) ** 2 + (y2 - y1) ** 2
-    dist = math.sqrt(dist)
+    try:
+        dist = (x2 - x1) ** 2 + (y2 - y1) ** 2
+        dist = math.sqrt(dist)
+    except:
+        print("Error: Parameters passed were not valid data types")
 
     return dist
 
 ## takes in a string -- reverses it
 ## then compares the two
 def isPalindrome(temp):
-    temp = str(temp)
-    test = temp[::-1]
-
-    if(test == temp):
-        return True
-
+    if isinstance(temp, list):
+        temp2 = ""
+        for i in temp:
+            temp2+=str(i)
+        temp = temp2
+    try:
+        temp = str(temp)
+    except:
+        print("Error: Unable to convert object to string")
     else:
-        return False
+        test = temp[::-1]
+        if(test == temp):
+            return True
+        else:
+            return False
 
 ## has input to receive two numbers
 ## divides the two, then outputs the result
