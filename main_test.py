@@ -14,7 +14,7 @@ def test_openfileNA2():
 def test_numbers(number1, number2, answer):
 	assert numbers(number1, number2) == answer
 
-@pytest.mark.parametrize("values, expected", [([0, 0, 5, 5], 7.071068), ([-5, -5, 5, 5], 14.142136), ([-55, -57, 100, 100], 220.621848), ([-550, -570, 1000, 1000], 2206.218484), (['a', 'b', 'c', 'd'], "abcd")])
+@pytest.mark.parametrize("values, expected", [([0, 0, 5, 5], 7.071068), ([-5.0, -5.0, 5.0, 5.0], 14.142136), ([-55, -57, 100, 100], 220.621848), ([-550, -570, 1000, 1000], 2206.218484), (['a', 'b', 'c', 'd'], None)])
 def test_dist(values, expected):
     assert pytest.approx(dist(values[0], values[1], values[2], values[3]), .00001) == expected
 
