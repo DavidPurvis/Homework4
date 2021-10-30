@@ -5,7 +5,7 @@ from main import *
 def test_openfile(name, result):
 	assert openFile(name) == result
 	
-@pytest.mark.parametrize("number1, number2, answer", [(5, 1, 5), (30, 5, 6), (5, 0, None)])
+@pytest.mark.parametrize("number1, number2, answer", [(5, 1, 5), (30, 5, 6), (5, 0, None), ("hi", "hello", None), (2.5, 2.5, 1)])
 def test_numbers(number1, number2, answer):
 	assert numbers(number1, number2) == answer
 
@@ -25,9 +25,6 @@ def test_for_neg_sqrt():
 	
 def test_for_not_integer():
 	assert sq("abc") == None
-	
-def test_numbersstring():
-	assert numbers("hi", "one") == None
 	
 def test_for_only_string():
 	assert greetUser("alexander", "du0ng", "bu1") == None
@@ -61,4 +58,8 @@ def test_divide2(monkeypatch, capsys):
 	divide()
 	captured_stdout, captured_stderr = capsys.readouterr()
 	assert captured_stdout.strip() == "Please try again"
+	
+@pytest.mark.parametrize("array, index", [([1, 2, 3], 2), ([1, 2, 3], 5), (["hi", "hello", "goodbye"], 0), ([1.0, 2.2, 3.5], 2)])
+def test_displayItem(array, index):
+	assert displayItem(array, index) == None
 
