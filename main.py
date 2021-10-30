@@ -59,21 +59,35 @@ def divide():
     num1 = int(input("Enter a number: "))
     num2 = int(input("Enter another number: "))
 
-    div = num1 / num2
+    try:
+    	div = num1 / num2
+    	print("Your numbers divided is:", div)
+    except:
+        print("Please try again")
 
-    print("Your numbers divided is:", div)
 
 ## returns the squareroot of a particular number
 def sq(num):
-    return math.sqrt(num)
+	try:
+		return math.sqrt(num)
+	except ValueError:
+		print("Input must be positive numbers.")
+	except TypeError:
+		print("input must be integers.")
 
 ## grabs user's name
 ## greets them by their entire name
 ## names should be strings
 def greetUser(first, middle, last):
-    print("Hello!")
-    print("Welcome to the program", first, middle, last)
-    print("Glad to have you!")
+	try:
+		if(first.isalpha() and middle.isalpha() and last.isalpha()):
+    			print("Hello!")
+    			print("Welcome to the program", first, middle, last)
+    			print("Glad to have you!")
+		else:
+    			print("Input must be string values.")
+	except:
+		print("Input must be string values.")
 
 ## takes in a Python list
 ## attempts to display the item at the index provided
